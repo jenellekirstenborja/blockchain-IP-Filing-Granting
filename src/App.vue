@@ -23,6 +23,6 @@ export default {
 
 body {
   margin:0;
-  background: #eee;
+  background: white;
 }
 </style>

@@ -1,30 +1,31 @@
 <template>
-  <div>
+  <div id="app">
     <div class="container">
       <b-navbar toggleable="lg" type="" variant="" class="p-0">
-        <b-navbar-brand class="text-dark" href="#"
-          >Intellectual Property Filing and Granting System
+        <b-navbar-brand class="text-dark" href="#">
+          <p class ="header"> Intellectual Property Filing and Granting System </p>
         </b-navbar-brand>
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav>
             <b-nav-item href="#" disable v-if="role === 1">
-              <p style="color: black !important">Admin</p>
+              <p class ="admin-text">Admin</p>
             </b-nav-item>
 
-            <b-nav-item href="#" disabled v-else-if="role === 2">
-              <p style="color: #3f704d !important">User</p>
+            <b-nav-item href="#" disabled v-else="role === 2">
+              <p class ="user-text">User</p>
+              
             </b-nav-item>
 
-            <b-nav-item href="#" disabled v-else>
-              <p style="color: #800000 !important">Unknown Role</p>
-            </b-nav-item>
+   
           </b-navbar-nav>
         </b-navbar-nav>
       </b-navbar>
-    </div>
-    <p v-if="account">Connected Account: {{ account }}</p>
 
-    <form @submit.prevent="submitForm">
+
+    </div>
+    <p class = "account-text" v-if="account" > Account Address: {{ account }}</p>
+
+    <form @submit.prevent="submitForm" >
       <label>IPC Classification</label>
       <input type="text" v-model="IPC_classification" required />
       <label>Applicant</label>
@@ -35,9 +36,12 @@
       <input type="text" v-model="title" required />
 
       <div class="submit">
-        <button type="submit">Submit</button>
+        <button type="submit" class="submit-button">Submit</button>
       </div>
     </form>
+
+
+
   </div>
 </template>
 
@@ -75,7 +79,7 @@ export default {
       }
     },
     async createContractInstance() {
-      var contractAddress = "0x47b7B8292f938324E97235684577d7bfb11Cf1Ec";
+      var contractAddress = "0x290f9DcA9905B98eD02120440bEa5050eBE8AEb7";
       this.contract = new ethers.Contract(contractAddress, contractAbi);
       this.contract = this.contract.connect(this.provider);
     },
@@ -94,31 +98,67 @@ export default {
       }
     },
     async getRole() {
-  try {
-    // Get the signer
-    const signer = this.provider.getSigner();
-    // Connect the contract with the signer
-    const contractWithSigner = await this.contract.connect(signer);
-    // Get the role from the contract
-    const role = await contractWithSigner.getRole(await signer.getAddress());
-    // Parse the role to an integer
-    this.role = parseInt(role);
-    // Log the role for debugging
-    console.log("Role:", this.role);
-  } catch (error) {
-    console.error("Error getting role:", error);
-  }
-},
-
+      try {
+        // Get the signer
+        const signer = this.provider.getSigner();
+        // Connect the contract with the signer
+        const contractWithSigner = await this.contract.connect(signer);
+        // Get the role from the contract
+        const role = await contractWithSigner.getRole(
+          await signer.getAddress()
+        );
+        // Parse the role to an integer
+        this.role = parseInt(role);
+        // Log the role for debugging
+        console.log("Role:", this.role);
+      } catch (error) {
+        console.error("Error getting role:", error);
+      }
+    },
   },
 };
 </script>
 
 <style>
+
+#app{
+
+}
+.container{
+
+
+  
+}
+.header {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+  color: #555;
+
+}
+.user-text {
+  font-size: 1.1em;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+  color: #ab9a91;
+
+}
+.admin-text{
+  font-size: 1.1em;
+  letter-spacing: 1.2px;
+  font-weight: bold;
+  color: #d5bdaf;
+}
+.account-text {
+  font-size: 1em;
+  letter-spacing: 3px;
+  color: #afb3a2;
+
+}
 form {
-  max-width: 420px;
+  max-width: 450px;
   margin: 30px auto;
-  background: white;
   text-align: left;
   padding: 40px;
   border-radius: 10px;
@@ -127,9 +167,9 @@ label {
   color: #aaa;
   display: inline-block;
   margin: 25px 0 15px;
-  font-size: 0.6em;
+  font-size: 0.9em;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-weight: bold;
 }
 input {
@@ -141,14 +181,18 @@ input {
   border-bottom: 1px solid #ddd;
   color: #555;
 }
-button {
-  background: #aaa;
+.submit-button {
+
+  background: #555; /* Updated button background color */
   border: 0;
-  padding: 10px 20px;
+  padding: 15px 30px; /* Adjusted padding */
   margin-top: 20px;
   color: white;
-  border-radius: 20px;
+  border-radius: 40px;
   text-transform: uppercase;
+  font-weight: bold; /* Added font weight */
+  cursor: pointer; /* Added cursor style */
+
 }
 .submit {
   text-align: center;
