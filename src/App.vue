@@ -1,13 +1,15 @@
 <template>
-  <apply />
+  <div id="app">
+    <ApplyForm />
+  </div>
 </template>
 
 <script>
- import apply from './components/apply.vue'
+import ApplyForm from './components/ApplyForm.vue'
 
 export default {
   name: 'App',
-  components: { apply }
+  components: { ApplyForm }
 }
 </script>
 
@@ -22,7 +24,7 @@ export default {
 }
 
 body {
-  margin:0;
+  margin: 0;
   background: white;
 }
 </style>

@@ -20,9 +20,32 @@
 				"internalType": "string",
 				"name": "_title",
 				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_fileIpfsHash",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_fileName",
+				"type": "string"
 			}
 		],
 		"name": "applyForPatent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "_applicationNumber",
+				"type": "uint64"
+			}
+		],
+		"name": "denyPatent",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -126,6 +149,16 @@
 				"internalType": "string",
 				"name": "title",
 				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fileIpfsHash",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fileName",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -171,6 +204,122 @@
 				"internalType": "uint64",
 				"name": "",
 				"type": "uint64"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "deniedPatents",
+		"outputs": [
+			{
+				"internalType": "uint64",
+				"name": "applicationNumber",
+				"type": "uint64"
+			},
+			{
+				"internalType": "uint64",
+				"name": "patentNumber",
+				"type": "uint64"
+			},
+			{
+				"internalType": "uint256",
+				"name": "applicationDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "publicationDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "IPC_Classification",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "applicant",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "inventors",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fileIpfsHash",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fileName",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllApplications",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllAppliedPatents",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllDeniedPatents",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllGrantedPatents",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -262,6 +411,16 @@
 			{
 				"internalType": "string",
 				"name": "title",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fileIpfsHash",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fileName",
 				"type": "string"
 			}
 		],
@@ -408,6 +567,16 @@
 						"internalType": "string",
 						"name": "title",
 						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "fileIpfsHash",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "fileName",
+						"type": "string"
 					}
 				],
 				"internalType": "struct IntellectualPropertySystem.Patent",
@@ -468,6 +637,16 @@
 					{
 						"internalType": "string",
 						"name": "title",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "fileIpfsHash",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "fileName",
 						"type": "string"
 					}
 				],
