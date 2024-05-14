@@ -131,6 +131,11 @@
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
+				"name": "deniedAt",
+				"type": "uint256"
+			},
+			{
 				"internalType": "string",
 				"name": "IPC_Classification",
 				"type": "string"
@@ -212,6 +217,25 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint64",
+				"name": "",
+				"type": "uint64"
+			}
+		],
+		"name": "deniedIndex",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
@@ -237,6 +261,11 @@
 			{
 				"internalType": "uint256",
 				"name": "publicationDate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "deniedAt",
 				"type": "uint256"
 			},
 			{
@@ -268,19 +297,6 @@
 				"internalType": "string",
 				"name": "fileName",
 				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getAllApplications",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -394,6 +410,11 @@
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
+				"name": "deniedAt",
+				"type": "uint256"
+			},
+			{
 				"internalType": "string",
 				"name": "IPC_Classification",
 				"type": "string"
@@ -455,6 +476,25 @@
 			}
 		],
 		"name": "isPatentAppliedFor",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "",
+				"type": "uint64"
+			}
+		],
+		"name": "isPatentDenied",
 		"outputs": [
 			{
 				"internalType": "bool",
@@ -549,6 +589,11 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "uint256",
+						"name": "deniedAt",
+						"type": "uint256"
+					},
+					{
 						"internalType": "string",
 						"name": "IPC_Classification",
 						"type": "string"
@@ -617,6 +662,11 @@
 					{
 						"internalType": "uint256",
 						"name": "publicationDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deniedAt",
 						"type": "uint256"
 					},
 					{

@@ -6,21 +6,36 @@
     <section class="patent-details-contents">
       <!-- Loop through properties of `patent` prop object, except of `file` property  -->
       <!-- `key` is the name of the property, such as `applicationNumber` -->
-      <template v-for="(value, key) in patent">
-        <div v-if="key !== 'file'" :key="`patent-details-${key}`" class="d-flex align-items-center">
-          <label :for="key" class="my-3 mr-2 text-right">{{ formatKeyToTitleCase(key) }}</label>
+      <template v-if="patent">
+        <template v-for="(value, key) in patent">
+          <div
+            v-if="key !== 'file'"
+            :key="`patent-details-${key}`"
+            class="d-flex align-items-center"
+          >
+            <label :for="key" class="my-3 mr-2 text-right">{{
+              formatKeyToTitleCase(key)
+            }}</label>
+            <span class="mr-4">:</span>
+            <p :id="key" class="my-3">{{ value }}</p>
+          </div>
+        </template>
+
+        <!-- Show a link to download the file for `file` property if it exists -->
+        <div v-if="patent.file" class="d-flex align-items-center">
+          <label for="file" class="my-3 mr-2 text-right">File</label>
           <span class="mr-4">:</span>
-          <p :id="key" class="my-3">{{ value }}</p>
+          <template v-if="patent.file.name && patent.file.ipfsHash">
+            <b-link href="#" @click="openFile(patent.file)">{{
+              patent.file.name
+            }}</b-link>
+          </template>
+          <span v-else>File not available</span>
         </div>
       </template>
-
-      <!-- Show a link to download the file for `file` property if it exists -->
-      <div v-if="patent.file" class="d-flex align-items-center">
-        <label for="file" class="my-3 mr-2 text-right">File</label>
-        <span class="mr-4">:</span>
-        <b-link v-if="patent.file.name && patent.file.ipfsHash" href="#" @click="openFile(patent.file)">{{ patent.file.name }}</b-link>
-        <span v-else>File not available</span>
-      </div>
+      <template v-else>
+        <p>No patent details available.</p>
+      </template>
     </section>
   </b-modal>
 </template>
