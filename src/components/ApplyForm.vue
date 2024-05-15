@@ -61,6 +61,12 @@
       Account Address: {{ account }}
     </p>
 
+
+<!-- <div class="text-center">
+  <b-spinner label="Spinning"></b-spinner>
+
+</div> -->
+
     <!-- Patent Application Form -->
     <b-modal
       id="modal-prevent-closing"
@@ -136,11 +142,10 @@
 			<input type="text" v-model="searchQuery" placeholder="Search patents..." class="form-control" />
 		</div>
 
-    <b-button
-      class="ml-auto mr-auto"
+    <b-button  class="apply-button"
       v-b-modal.modal-prevent-closing
       v-if="role === 2"
-      >Apply</b-button
+      >patent application</b-button
     >
 
     <b-tabs content-class="mt-3" class = "tab">
@@ -161,6 +166,7 @@
               href="#"
               v-b-modal.patent-details
               @click="handleOpenPatentDetailsModal(data.item)"
+              class="details-link"
               >Details</b-link
             >
           </template>
@@ -180,9 +186,9 @@
           <template v-slot:cell(action)="data">
             <b-link
               href="#"
-              class="mr-2"
               v-b-modal.patent-details
               @click="handleOpenPatentDetailsModal(data.item)"
+              class="details-link"
             >
               Details
             </b-link>
@@ -223,6 +229,7 @@
               href="#"
               v-b-modal.patent-details
               @click="handleOpenPatentDetailsModal(data.item)"
+              class="details-link"
               >Details</b-link
             >
           </template>
@@ -245,6 +252,7 @@
               href="#"
               v-b-modal.patent-details
               @click="handleOpenPatentDetailsModal(data.item)"
+              class="details-link"
               >Details</b-link
             >
           </template>
@@ -703,7 +711,7 @@ export default {
 }
 .navbar-custom {
   width: 100%;
-  background-color: ;
+
 }
 .user-role.btn {
   border-radius: 1rem;
@@ -790,17 +798,62 @@ input {
   text-align: center;
 }
 
+
 .tab .b-table {
-  font-size: 13px; /* Common font size for all tables */
-  font-family: 'Verdana', sans-serif; /* Common font family for all tables */
+  font-size: 13px; 
+  font-family: "Verdana", sans-serif; 
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+}
+
+/* Styling for the non-active tabs */
+.tab a.nav-link {
+  color: #555;
+  background-color: rgb(197, 197, 197);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+ 
+}
+
+/* Styling for the active tab */
+.tab a.nav-link.active {
+  color: black; /* Change to your desired color for the active tab */
+}
+.apply-button {
+  font-size: 13px; 
+  font-family: "Verdana", sans-serif; 
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.details-link {
+  font-size: 13px;
+  font-style: italic;
+  color: #555; 
+  text-decoration: underline;
+  padding: 10px;
+
+}
+
+.details-link:hover,
+.details-link:focus,
+.details-link:active {
+  color: black; /* Change color when hovered, focused, or active */
 }
 
 
 
-
-
-
-
-
-
 </style>
+
+
+
+
+
+
+
+
+
+
